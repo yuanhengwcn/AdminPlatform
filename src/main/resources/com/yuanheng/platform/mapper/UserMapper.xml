@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--在这个xml文件中,建立起一个映射关系,ORM-->
+<!--namespace:命名空间,理论上可以随便写,但是一般是Dao层接口类的全路径,要确保该命名空间唯一!-->
+
+<mapper namespace="com.yuanheng.platform.mapper.UserMapper">
+    <
+</mapper>

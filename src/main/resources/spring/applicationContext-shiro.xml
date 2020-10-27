@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="myRealm" class="com.yuanheng.platform.shiro.MyRealm"/>
+
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="myRealm"/>
+    </bean>
+
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/"/>
+        <property name="successUrl" value="/index.html"/>
+        <property name="unauthorizedUrl" value="/error.html"/>
+        <property name="filterChainDefinitions">
+            <value>
+                / = anon
+                /easyui/** = anon
+                /layui/** = anon
+                /platform/login = anon
+                /login.html = anon
+                /logout = logout
+                /index.html = authc
+                /** = roles[admin]
+            </value>
+        </property>
+    </bean>
+
+</beans>
